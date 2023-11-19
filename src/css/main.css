@@ -1,0 +1,101 @@
+$whBack: #fff;
+$textBlack: #1c2a39;
+$textGray: #5c6a79;
+$btnColor: #4c3db2;
+$btnActiveColor: #4c3db2;
+
+@define-mixin textGray $fontSize {
+	font-family: Open Sans;
+	font-size: $(fontSize);
+	font-weight: 400;
+	color: $textGray;
+}
+
+@define-mixin textBlack $fontSize {
+	color: $textBlack;
+	font-family: Montserrat;
+	font-size: $(fontSize);
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+@define-mixin textBtn $fontSize {
+	color: $btnColor;
+	font-family: Montserrat;
+	font-size: $(fontSize);
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	text-transform: uppercase;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-color: $whBack;
+}
+
+body {
+	visibility: hidden;
+}
+
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+.inner-container {
+	max-width: 1120px;
+	margin: 0 auto;
+}
+
+.app-container {
+	width: 100%;
+}
+
+button {
+	min-width: 100px;
+	max-width: 176px;
+	min-height: 45px;
+	@mixin textBtn 8px;
+	border: 1px solid $btnColor;
+	background-color: $whBack;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+
+	i {
+		font-size: 20px;
+		position: absolute;
+		right: 2px;
+		top: 2px;
+		animation: rotate 2s linear infinite;
+	}
+
+	&:not(.active):hover {
+		background-color: $btnColor;
+		color: #fff;
+	}
+
+	&.active {
+		border: 1px solid #eeedf5;
+		color: $textGray;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

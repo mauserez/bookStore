@@ -1,0 +1,108 @@
+$default-width: 800px;
+$default-color: #9e98dc;
+$white-color: #ffffff;
+$dot-color: lightgray;
+
+.swifty-slider {
+	display: none;
+	flex-direction: column;
+	width: 100%;
+	gap: 17px;
+	overflow: hidden;
+	position: relative;
+
+	&__slide-wrap {
+		display: flex;
+		width: 100%;
+	}
+
+	&__slide-container {
+		transition: transform 1.5s ease-in-out 0.1s;
+		display: flex;
+
+		&__slide {
+			flex: 1;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+
+	&__dot-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&__dot {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			margin: 0 0.2em;
+			background: $dot-color;
+			cursor: pointer;
+
+			&.is-active {
+				background: $default-color;
+			}
+		}
+	}
+
+	&__arrow-container {
+		display: none;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		bottom: 17px;
+		top: 0;
+		align-items: center;
+		justify-content: center;
+
+		&.is-active {
+			cursor: pointer;
+		}
+
+		.arrow {
+			display: block;
+			position: absolute;
+			top: 50%;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background: rgba(255, 255, 255, 0.7);
+			cursor: pointer;
+
+			&::before {
+				box-sizing: border-box;
+				content: "";
+				display: block;
+				position: absolute;
+				top: 12px;
+				width: 16px;
+				height: 16px;
+				border-top: 5px solid $default-color;
+			}
+
+			&-prev {
+				left: 25px;
+
+				&::before {
+					left: 15px;
+					border-left: 5px solid $default-color;
+					transform: rotate(-45deg);
+				}
+			}
+
+			&-next {
+				right: 25px;
+
+				&::before {
+					right: 15px;
+					border-right: 5px solid $default-color;
+					transform: rotate(45deg);
+				}
+			}
+		}
+	}
+}
