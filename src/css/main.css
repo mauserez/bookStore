@@ -59,7 +59,7 @@ body {
 
 button {
 	min-width: 100px;
-	max-width: 176px;
+	width: 176px;
 	min-height: 45px;
 	@mixin textBtn 8px;
 	border: 1px solid $btnColor;
